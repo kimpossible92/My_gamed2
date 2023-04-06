@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Tournament : MonoBehaviour
 {
-    public static Tournament tournament;
+    //public static Tournament tournament;
     [SerializeField] public string TimeToString;
     [SerializeField] public List<LeadboardPlayerData> GetData;
     [SerializeField] public string[] TypeTourString;
@@ -72,7 +72,7 @@ public class Tournament : MonoBehaviour
         string[] time34 = timeParse2.Split(new string[] { "-", "T", "Z", ":" }, StringSplitOptions.RemoveEmptyEntries);
         if (DateTime.UtcNow.DayOfWeek.ToString() == "Monday")
         {
-            TournamentLB.THIS.TourEndMethod();
+            GameObject.FindObjectOfType<TournamentLB>().TourEndMethod();
             //print(DateTime.UtcNow.DayOfWeek.ToString());
         }
         if (time34.Length > 0)
@@ -90,7 +90,7 @@ public class Tournament : MonoBehaviour
             {
                 if (!save1 && realday == 28 || realday == 29 || realday == 30 || realday == 31)//
                 {
-                    Tournament.tournament.division = int.Parse("" + realYear + realmonth + 1); print("division" + Tournament.tournament.division);
+                    GameObject.FindObjectOfType<Tournament>().division = int.Parse("" + realYear + realmonth + 1); print("division" + GameObject.FindObjectOfType<Tournament>().division);
                     if (realmonth == 12)
                     {
                         year = realYear + 1;
@@ -103,12 +103,12 @@ public class Tournament : MonoBehaviour
                     sec = 0;
                     EndTournamentTime = new DateTime(year, month, day, hour, min, sec);
                     save1 = true;
-                    TournamentLB.THIS.changefalseScore(300);
+                    GameObject.FindObjectOfType<TournamentLB>().changefalseScore(300);
                     return;
                 }
                 else if (!save1 && realday == 1 || realday == 2 || realday == 3 || realday == 4 || realday == 5 || realday == 6 || realday == 7)
                 {
-                    Tournament.tournament.division = int.Parse("" + realYear + realmonth + 2); print("division" + Tournament.tournament.division);
+                    GameObject.FindObjectOfType<Tournament>().division = int.Parse("" + realYear + realmonth + 2); print("division" + GameObject.FindObjectOfType<Tournament>().division);
                     year = realYear;
                     month = realmonth;
                     day = int.Parse(time12[1]);//8
@@ -116,12 +116,12 @@ public class Tournament : MonoBehaviour
                     min = 0;
                     sec = 0;
                     EndTournamentTime = new DateTime(year, month, day, hour, min, sec);
-                    save1 = true; TournamentLB.THIS.changefalseScore(366);
+                    save1 = true; GameObject.FindObjectOfType<TournamentLB>().changefalseScore(366);
                     return;
                 }
                 else if (!save1 && realday == 8 || realday == 9 || realday == 10 || realday == 11 || realday == 12 || realday == 13 || realday == 14)
                 {
-                    Tournament.tournament.division = int.Parse("" + realYear + realmonth + 3); print("division" + Tournament.tournament.division);
+                    GameObject.FindObjectOfType<Tournament>().division = int.Parse("" + realYear + realmonth + 3); print("division" + GameObject.FindObjectOfType<Tournament>().division);
                     year = realYear;
                     month = realmonth;
                     day = int.Parse(time12[2]);//15
@@ -129,12 +129,12 @@ public class Tournament : MonoBehaviour
                     min = 0;
                     sec = 0;
                     EndTournamentTime = new DateTime(year, month, day, hour, min, sec);
-                    save1 = true; TournamentLB.THIS.changefalseScore(312);
+                    save1 = true; GameObject.FindObjectOfType<TournamentLB>().changefalseScore(312);
                     return;
                 }
                 else if (!save1 && realday == 15 || realday == 16 || realday == 17 || realday == 18 || realday == 19 || realday == 20 || realday == 21)
                 {
-                    Tournament.tournament.division = int.Parse("" + realYear + realmonth + 4); print("division" + Tournament.tournament.division);
+                    GameObject.FindObjectOfType<Tournament>().division = int.Parse("" + realYear + realmonth + 4); print("division" + GameObject.FindObjectOfType<Tournament>().division);
                     year = realYear;
                     month = realmonth;
                     day = int.Parse(time12[3]);//22
@@ -142,12 +142,12 @@ public class Tournament : MonoBehaviour
                     min = 0;
                     sec = 0;
                     EndTournamentTime = new DateTime(year, month, day, hour, min, sec);
-                    save1 = true; TournamentLB.THIS.changefalseScore(456);
+                    save1 = true; GameObject.FindObjectOfType<TournamentLB>().changefalseScore(456);
                     return;
                 }
                 else if (!save1 && realday == 22 || realday == 23 || realday == 24 || realday == 25 || realday == 26 || realday == 27)
                 {
-                    Tournament.tournament.division = int.Parse("" + realYear + realmonth + 5); print("division" + Tournament.tournament.division);
+                    GameObject.FindObjectOfType<Tournament>().division = int.Parse("" + realYear + realmonth + 5); print("division" + GameObject.FindObjectOfType<Tournament>().division);
                     year = realYear;
                     month = realmonth;
                     day = int.Parse(time12[4]);//28
@@ -155,7 +155,7 @@ public class Tournament : MonoBehaviour
                     min = 0;
                     sec = 0;
                     EndTournamentTime = new DateTime(year, month, day, hour, min, sec);
-                    save1 = true; TournamentLB.THIS.changefalseScore(580);
+                    save1 = true; GameObject.FindObjectOfType<TournamentLB>().changefalseScore(580);
                     return;
                 }
             }
@@ -179,14 +179,14 @@ public class Tournament : MonoBehaviour
         Join = JoinButtonOff.GetComponentInChildren<TextMeshProUGUI>();
         Joined = JoinButtonOff.GetComponentInChildren<TextMeshProUGUI>();
         title = "Изумрудный город";
-        tournament = this;
+        //tournament = this;
         PlayerPrefsNextBonusGameTime = new DateTime(year, month, day, hour, min, sec);            //пока что вводится в испекторе, время начала турнира(не через какое время)
         EndTournamentTime = new DateTime(2019, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 59); //тестовое время завершения турнира, сегодея в 23:59:59
         joined = false;                                                                           //тут надо поменять на ссылку joined = Server.joined; потом сохранить на сервер = true; и при входе проверить и синхронизировать этот bool
         rezervedTime = new DateTime(2019, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 59);
         //tournamentActivated = true;                                                             //TEMP потом надо убрать это поле, имитирует как будто Турнир уже начался
         TimerTxt = TimerTxt.GetComponent<Text>();
-        TournamentLB.THIS = Tournament.tournament.TournamentTask.GetComponent<TournamentLB>();
+        //TournamentLB.THIS = GameObject.FindObjectOfType<Tournament>().TournamentTask.GetComponent<TournamentLB>();
     }
     public void nextTour()
     {
@@ -240,14 +240,14 @@ public class Tournament : MonoBehaviour
     }
     public void MenuTounamentClick()
     {
-        TournamentLB.THIS.DestoyList();
+        GameObject.FindObjectOfType<TournamentLB>().DestoyList();
         //Tournament.joined = false;
         //if (Facebook.Unity.FB.IsLoggedIn)//&&(PlayerPrefs.GetInt("Gems")>15||Tournament.joined))
         //{
-        PortalNetwork.THIS.GetTournamer();//
-        PortalNetwork.THIS.GetPlayersTournament();//
+        GameObject.FindObjectOfType<PortalNetwork>().GetTournamer();//
+        GameObject.FindObjectOfType<PortalNetwork>().GetPlayersTournament();//
         //}
-        Tournament.tournament.kubokButton();
+        GameObject.FindObjectOfType<Tournament>().kubokButton();
         //TourametWindow.GetComponent<TounamentLB>().OnSwitch();
         //TounamentLB.THIS.OnSwitch();
         //TounamentLB.THIS.OnSwitch();
@@ -326,7 +326,7 @@ public class Tournament : MonoBehaviour
     public void JoinTournament() //вызывается кнопкой Join
     {
         joined = true;
-        PortalNetwork.THIS.SetTournament();
+        GameObject.FindObjectOfType<PortalNetwork>().SetTournament();
         PlayerPrefsNextBonusGameTime.ToString();
         PlayerPrefs.SetInt(title, 1);
     }

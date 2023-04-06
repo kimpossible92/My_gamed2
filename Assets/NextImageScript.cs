@@ -19,7 +19,7 @@ public class NextImageScript : MonoBehaviour {
     [SerializeField] Image GetImage;
     public void LoadPlayerPicture()
     {
-        foreach(var hurl in PortalNetwork.THIS.urlReturn())
+        foreach(var hurl in GameObject.FindObjectOfType<PortalNetwork>().urlReturn())
         {
             string[] vs12 = hurl.Split(new string[] { "$" }, System.StringSplitOptions.RemoveEmptyEntries);
             foreach(var iurl in plId)
@@ -71,8 +71,8 @@ public class NextImageScript : MonoBehaviour {
     }
     public void kl0()
     {
-        PortalNetwork.THIS.isClear();
-        PortalNetwork.THIS.urlClear(); //
+        GameObject.FindObjectOfType<PortalNetwork>().isClear();
+        GameObject.FindObjectOfType<PortalNetwork>().urlClear(); //
         foreach(var lp in listPlayers)
         {
           if(lp!=null) Destroy(lp.gameObject);
@@ -83,9 +83,9 @@ public class NextImageScript : MonoBehaviour {
     int k = 0;
     public void LoadLeaderBoard()
     {
-        if (PortalNetwork.THIS.DataManagerList().Count!=0&&k < PortalNetwork.THIS.DataManagerList().Count)
+        if (GameObject.FindObjectOfType<PortalNetwork>().DataManagerList().Count!=0&&k < GameObject.FindObjectOfType<PortalNetwork>().DataManagerList().Count)
         {
-            foreach(var item in PortalNetwork.THIS.DataManagerList())//
+            foreach(var item in GameObject.FindObjectOfType<PortalNetwork>().DataManagerList())//
             {
                 string[] vsSplit = item.Split(new string[] { "$" }, System.StringSplitOptions.RemoveEmptyEntries);
                 GameObject p = (GameObject)Instantiate(GetTextsLB.gameObject);
@@ -94,7 +94,7 @@ public class NextImageScript : MonoBehaviour {
                 p.transform.SetParent(Content.transform);//
                 p.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(StartPostion.anchoredPosition.x + (145 * k), StartPostion.anchoredPosition.y, 0);
                 listPlayers.Add(p.GetComponent<Text>());
-                if (k == PortalNetwork.THIS.DataManagerList().Count - 1)
+                if (k == GameObject.FindObjectOfType<PortalNetwork>().DataManagerList().Count - 1)
                 {
                     //PortalNetwork.THIS.LoadPicture();
                 }

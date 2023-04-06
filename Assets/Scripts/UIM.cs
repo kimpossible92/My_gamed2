@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class UIManager : MonoBehaviour
+public class UIM : MonoBehaviour
 {
-    public static UIManager instance;
+    public static UIM instance;
 
     //Screen object variables
     public GameObject loginUI;

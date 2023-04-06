@@ -7,7 +7,7 @@ using System;
 
 public class PortalNetwork : MonoBehaviour
 {
-    public static PortalNetwork THIS;
+    //public static PortalNetwork THIS;
     public string UserID;
     [SerializeField] //public 
         List<string> playerData;
@@ -46,7 +46,7 @@ public class PortalNetwork : MonoBehaviour
     }
     private void Awake()
     {
-        THIS = this;
+        //THIS = this;
         dataManager = new GamesparksDataManager();
     }
     public void SendScoreLevel(int lvl,int score)
@@ -87,7 +87,7 @@ public class PortalNetwork : MonoBehaviour
     {
         //Tournament.tournament.NamesImage.GetComponent<UnityEngine.UI.Image>().sprite = Tournament.tournament.TypeTourSprite[Tournament.tournament.ChooseTournir];
         dataManager.GetCallPhotoTour5();
-        OpenAppLevel.THIS.StartCoroutine(GetEnumeratorPhoto2());
+        GameObject.FindObjectOfType<OpenAppLevel>().StartCoroutine(GetEnumeratorPhoto2());
     }
     IEnumerator GetEnumeratorPhoto2()
     {

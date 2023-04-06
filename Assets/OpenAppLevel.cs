@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class OpenAppLevel : MonoBehaviour
 {
-    public static OpenAppLevel THIS;
+    //public static OpenAppLevel THIS;
     [SerializeField] GameObject GetButton;
     public int[] ingTarget = new int[2];
     public int[] collectItems = new int[2];
@@ -61,7 +61,7 @@ public class OpenAppLevel : MonoBehaviour
     public float blckWH() { return 0.6f; }//
     private void Awake()
     {
-        THIS = this;
+        //THIS = this;
     }
     public void selectscores(int s1,int s2,int s3)
     {
@@ -71,20 +71,20 @@ public class OpenAppLevel : MonoBehaviour
     }
     public void SaveBombStripePackage()
     {
-        if (OpenAppLevel.THIS.currentlvl > 20 && Facebook.Unity.FB.IsLoggedIn || Facebook.Unity.FB.IsLoggedIn)
+        if (FindObjectOfType<OpenAppLevel>().currentlvl > 20 && Facebook.Unity.FB.IsLoggedIn || Facebook.Unity.FB.IsLoggedIn)
         {
             if (PlayerPrefs.GetInt("TourQual") < 11) PlayerPrefs.SetInt("TourQual", PlayerPrefs.GetInt("TourQual") + StripeGameCount);
         }
         //if (LevelManager.THIS.currentLevel > 20 || LevelManager.THIS.currentLevel == 21)
         //{
-            string url1 = THIS.urlOnTournament.Replace(Tournament.urlpredicate, string.Empty);
+            string url1 = FindObjectOfType<OpenAppLevel>().urlOnTournament.Replace(Tournament.urlpredicate, string.Empty);
             SaveControl();
            // Debug.Log("currentLevel:" + currentlvl);
         //}
     }
     public void SaveControl()
     {
-        if (Facebook.Unity.FB.IsLoggedIn) PortalNetwork.THIS.SaveControl();
+        if (Facebook.Unity.FB.IsLoggedIn) GameObject.FindObjectOfType<PortalNetwork>().SaveControl();
     }
     public void OnappMatch()
     {
@@ -103,7 +103,7 @@ public class OpenAppLevel : MonoBehaviour
             }
         }
         GetMoveLayer.restarting();
-        OpLvl.THIS.gameObject.SetActive(false);
+        GameObject.FindObjectOfType<OpLvl>().gameObject.SetActive(false);
         NextImage.gameObject.SetActive(false);
         if (modeLvl == 3)
         {

@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 
 public class MoveLayer : MonoBehaviour {
-    public static MoveLayer THIS;
+    //public static MoveLayer THIS;
     public string Name;
     public string urlOnTournament;
     [HideInInspector] public int movecount;
@@ -518,7 +518,7 @@ public class MoveLayer : MonoBehaviour {
                 sameTypeGem.type = "swirl";
             }
             typebonus = sameTypeGem.type;
-            OpenAppLevel.THIS.StripeGameCount += 1;
+            GameObject.FindObjectOfType<OpenAppLevel>().StripeGameCount += 1;
         }
         while(matchs.Count()>=3)
         {
