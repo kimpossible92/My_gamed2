@@ -1,0 +1,163 @@
+{
+  "project_info": {
+    "project_number": "156377863547",
+    "firebase_url": "https://jelly-5ae29.firebaseio.com",
+    "project_id": "jelly-5ae29",
+    "storage_bucket": "jelly-5ae29.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156377863547:android:0f3f4874e6af0801",
+        "android_client_info": {
+          "package_name": "com.bicodo.diamondcastle2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "156377863547-bmqm0epb920bv0lcb4cdl5s0ik4k7g6q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnvnxYte0FtHxAEKbLNA8fq1f6oRtUTWo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "156377863547-55h75edmboe5582gjuuda8g60jv40g49.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "156377863547-o4tp8esvtfougqt6t27squanuntcu61f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.bicodo2.jellygrnd"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156377863547:android:23bd23f7e42e95bc7919de",
+        "android_client_info": {
+          "package_name": "com.bicodo.diamondcastleepl"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "156377863547-bmqm0epb920bv0lcb4cdl5s0ik4k7g6q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnvnxYte0FtHxAEKbLNA8fq1f6oRtUTWo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "156377863547-55h75edmboe5582gjuuda8g60jv40g49.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "156377863547-o4tp8esvtfougqt6t27squanuntcu61f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.bicodo2.jellygrnd"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156377863547:android:8bc9260443cd14bf7919de",
+        "android_client_info": {
+          "package_name": "com.bicodo2.jellygrnd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "156377863547-bmqm0epb920bv0lcb4cdl5s0ik4k7g6q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnvnxYte0FtHxAEKbLNA8fq1f6oRtUTWo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "156377863547-55h75edmboe5582gjuuda8g60jv40g49.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "156377863547-o4tp8esvtfougqt6t27squanuntcu61f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.bicodo2.jellygrnd"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156377863547:android:34a0446833648242",
+        "android_client_info": {
+          "package_name": "com.example.emailpasswordmaxstepp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "156377863547-9ibksimrln4himfvtaplsecc1r92psn3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.emailpasswordmaxstepp",
+            "certificate_hash": "b7519ade5dfd570d6a919e2521a592ab0793fcc8"
+          }
+        },
+        {
+          "client_id": "156377863547-bmqm0epb920bv0lcb4cdl5s0ik4k7g6q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnvnxYte0FtHxAEKbLNA8fq1f6oRtUTWo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "156377863547-55h75edmboe5582gjuuda8g60jv40g49.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "156377863547-o4tp8esvtfougqt6t27squanuntcu61f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.bicodo2.jellygrnd"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

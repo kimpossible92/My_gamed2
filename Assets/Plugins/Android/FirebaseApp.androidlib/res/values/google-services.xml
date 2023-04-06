@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/firebase_database_url,@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_web_client_id">
+  <string name="firebase_database_url" translatable="false">https://jelly-5ae29.firebaseio.com</string>
+  <string name="gcm_defaultSenderId" translatable="false">156377863547</string>
+  <string name="google_storage_bucket" translatable="false">jelly-5ae29.appspot.com</string>
+  <string name="project_id" translatable="false">jelly-5ae29</string>
+  <string name="google_api_key" translatable="false">AIzaSyAnvnxYte0FtHxAEKbLNA8fq1f6oRtUTWo</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAnvnxYte0FtHxAEKbLNA8fq1f6oRtUTWo</string>
+  <string name="google_app_id" translatable="false">1:156377863547:android:23bd23f7e42e95bc7919de</string>
+  <string name="default_web_client_id" translatable="false">156377863547-bmqm0epb920bv0lcb4cdl5s0ik4k7g6q.apps.googleusercontent.com</string>
+</resources>
