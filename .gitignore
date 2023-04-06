@@ -54,7 +54,10 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-
+Assets/Firebase/Plugins/x86_64/FirebaseCppApp-10_5_0.so
+Assets/Firebase/Plugins/x86_64/FirebaseCppApp-10_5_0.bundle
+Assets/Firebase/Plugins/x86_64/FirebaseCppApp-10_7_0.bundle
+Assets/Firebase/Plugins/x86_64/FirebaseCppApp-10_7_0.so
 # Crashlytics generated file
 crashlytics-build.properties
 

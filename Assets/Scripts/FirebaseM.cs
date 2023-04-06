@@ -8,7 +8,7 @@ using System.Linq;
 
 public class FirebaseM : MonoBehaviour
 {
-
+    public GameObject GButtonLB;
     public DependencyStatus dependencyStatus;
     public FirebaseAuth auth;    
     public FirebaseUser User;
