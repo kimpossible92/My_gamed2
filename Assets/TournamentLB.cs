@@ -6,7 +6,7 @@ using System;
 
 public class TournamentLB : MonoBehaviour
 {
-    public static TournamentLB THIS;
+    //public static TournamentLB THIS;
     [SerializeField] public GameObject LoginFB;
     [SerializeField] public List<FriendData> playersData;
     [SerializeField] RectTransform StartPostion;
@@ -44,7 +44,7 @@ public class TournamentLB : MonoBehaviour
     }
     public void Cleared()
     {
-        if (TournamentLB.THIS.playerNames != null)
+        if (GameObject.FindObjectOfType<TournamentLB>().playerNames != null)
         {
             playerNames.Clear();
         }
@@ -205,7 +205,7 @@ public class TournamentLB : MonoBehaviour
             plist.Add(p);
             k += 1;
         }
-        if (TournamentLB.THIS.callme == true)
+        if (GameObject.FindObjectOfType<TournamentLB>().callme == true)
         {
             GameObject plocal = (GameObject)Instantiate(GetTextPlayer.gameObject);
             if (name == "TournamentWindow") plocal.transform.SetParent(GameObject.Find("CanvasGlobal").transform.Find("TournamentWindow").transform.Find("Image").transform.Find("Scroll View").transform.Find("Viewport"));

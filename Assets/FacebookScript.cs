@@ -45,10 +45,10 @@ public class FacebookScript : MonoBehaviour
         new FacebookConnectRequest().SetSwitchIfPossible(true).SetAccessToken(accessToken).Send((response) => {
             if (!response.HasErrors)
             {
-                MoveLayer.THIS.Name = response.DisplayName.ToString();//
+                GameObject.FindObjectOfType<MoveLayer>().Name = response.DisplayName.ToString();//
                 GetButtonFB.gameObject.SetActive(false);
-                PortalNetwork.THIS.UserID = response.UserId;
-                GetPicture(AccessToken.CurrentAccessToken.TokenString);Tournament.joined = true;Tournament.tournament.MenuTounamentClick();
+                GameObject.FindObjectOfType<PortalNetwork>().UserID = response.UserId;
+                GetPicture(AccessToken.CurrentAccessToken.TokenString);Tournament.joined = true; GameObject.FindObjectOfType<Tournament>().MenuTounamentClick();
             }
             else
             {
@@ -134,7 +134,7 @@ public class FacebookScript : MonoBehaviour
             var dic = result.ResultDictionary["data"] as Dictionary<string, object>;
             string url = dic.Where(i => i.Key == "url").First().Value as string;
             print(url);
-            MoveLayer.THIS.urlOnTournament = url;
+            GameObject.FindObjectOfType<MoveLayer>().urlOnTournament = url;
             StartCoroutine(loadPicture(url));
         }
 
@@ -146,9 +146,9 @@ public class FacebookScript : MonoBehaviour
         var texture = www.texture;
         var sprite = Sprite.Create(texture, new Rect(0, 0, 128, 128), new Vector2(0, 0), 1f);print(url);
         string url1 = url.Replace("https://platform-lookaside.fbsbx.com/platform/profilepic/?", string.Empty);//
-        PortalNetwork.THIS.Addpicture(url1, PortalNetwork.THIS.UserID);
+        GameObject.FindObjectOfType<PortalNetwork>().Addpicture(url1, GameObject.FindObjectOfType<PortalNetwork>().UserID);
         yield return new WaitForSeconds(0.5f);//
-        PortalNetwork.THIS.LoadPicture();
+        GameObject.FindObjectOfType<PortalNetwork>().LoadPicture();
     }
     public void fBvoid()//
     {

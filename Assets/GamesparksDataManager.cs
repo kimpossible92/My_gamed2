@@ -12,13 +12,13 @@ public class GamesparksDataManager : IDataManager
 
     public void LoadLeaderBoardData()
     {
-        new LeaderboardDataRequest().SetLeaderboardShortCode("Level.Level." + OpenAppLevel.THIS.currentLevel()).SetDontErrorOnNotSocial(true).SetEntryCount(10).Send((response) =>
+        new LeaderboardDataRequest().SetLeaderboardShortCode("Level.Level." + GameObject.FindObjectOfType<OpenAppLevel>().currentLevel()).SetDontErrorOnNotSocial(true).SetEntryCount(10).Send((response) =>
         {
             if (!response.HasErrors)
             {
                 foreach (GameSparks.Api.Responses.LeaderboardDataResponse._LeaderboardData entry in response.Data)
                 {
-                    PortalNetwork.THIS.addPData(entry.UserId+"$"+entry.UserName + " :" + entry.JSONData["Score"].ToString());
+                    GameObject.FindObjectOfType<PortalNetwork>().addPData(entry.UserId+"$"+entry.UserName + " :" + entry.JSONData["Score"].ToString());
                 }
             }
             else
@@ -29,7 +29,7 @@ public class GamesparksDataManager : IDataManager
     }
     public void GetCallPhotoTour4(Action<List<LeadboardPlayerData>> Callback)
     {
-        string dayStripe = "Fields.division." + Tournament.tournament.division;
+        string dayStripe = "Fields.division." + GameObject.FindObjectOfType<Tournament>().division;
         //new LeaderboardDataRequest_Stripe1().
         new LeaderboardDataRequest().SetLeaderboardShortCode(dayStripe).SetEntryCount(1000).Send((resp1) => {
             if (!resp1.HasErrors)
@@ -83,7 +83,7 @@ public class GamesparksDataManager : IDataManager
         CallNews();
         bool callme = false;
         int loadint2 = 0;
-        string dayStripe = "Fields.division." + Tournament.tournament.division;
+        string dayStripe = "Fields.division." + GameObject.FindObjectOfType<Tournament>().division;
         //new LeaderboardDataRequest_Stripe1().SetIncludeLast(10).SetEntryCount(1000).Send((resp1) =>        
         new LeaderboardDataRequest().SetLeaderboardShortCode(dayStripe).SetEntryCount(1000).Send((resp1) =>
         {
@@ -91,14 +91,14 @@ public class GamesparksDataManager : IDataManager
             {
                 foreach (var item1 in resp1.Data)
                 {
-                    TournamentLB.THIS.playerUrls.Add(Tournament.urlpredicate + item1.JSONData["TRACK"].ToString());
+                    GameObject.FindObjectOfType<TournamentLB>().playerUrls.Add(Tournament.urlpredicate + item1.JSONData["TRACK"].ToString());
                     //TounamentLB.THIS.playerNames.Add(item1.Rank + ":" + item1.UserName + "$" + item1.UserId);
-                    TournamentLB.THIS.playerNames.Add(item1.UserName+":"+ item1.JSONData["score"].ToString() + "$");Debug.Log(item1.UserName);
-                    TournamentLB.THIS.ListScores.Add(int.Parse(item1.JSONData["score"].ToString()));
-                    if (PortalNetwork.THIS.IsYou(item1.UserId))
+                    GameObject.FindObjectOfType<TournamentLB>().playerNames.Add(item1.UserName+":"+ item1.JSONData["score"].ToString() + "$");Debug.Log(item1.UserName);
+                    GameObject.FindObjectOfType<TournamentLB>().ListScores.Add(int.Parse(item1.JSONData["score"].ToString()));
+                    if (GameObject.FindObjectOfType<PortalNetwork>().IsYou(item1.UserId))
                     {
                         callme = true;
-                        Tournament.tournament.Rank = item1.Rank;
+                        GameObject.FindObjectOfType<Tournament>().Rank = item1.Rank;
                         Tournament.TourScore = int.Parse(item1.JSONData["score"].ToString());
                     }
                 }
@@ -106,10 +106,10 @@ public class GamesparksDataManager : IDataManager
                 {
                     //TounamentLB.THIS.playerNames.Add((TounamentLB.THIS.playerNames.Count+1) + ":" + "YOU$");
                     //TounamentLB.THIS.AddName((TounamentLB.THIS.playerNames.Count + 1) + ":" + "YOU$");
-                    TournamentLB.THIS.callme = true;
+                    GameObject.FindObjectOfType<TournamentLB>().callme = true;
                     //TounamentLB.THIS.ListScores.Add(PlayerPrefs.GetInt("TourQual"));
                 }
-                else TournamentLB.THIS.callme = false;
+                else GameObject.FindObjectOfType<TournamentLB>().callme = false;
             }
             else
             {
@@ -124,22 +124,22 @@ public class GamesparksDataManager : IDataManager
         {
             foreach (var k in resp2.Data_News1)
             {
-                if (Tournament.tournament.changeID == "" && k.Rank == 1)//k.UserId == "5be8b796fc37de04ee99c3ca")
+                if (GameObject.FindObjectOfType<Tournament>().changeID == "" && k.Rank == 1)//k.UserId == "5be8b796fc37de04ee99c3ca")
                 {
                     //Tournament.tournament.division = k.Division;
-                    Tournament.tournament.league = k.league;
+                    GameObject.FindObjectOfType<Tournament>().league = k.league;
                     //Debug.Log(k.league +":"+ Tournament.tournament.division);
-                    Tournament.tournament.TimeToString = k.When.ToString();
-                    Tournament.tournament.NotLimitTimer();
+                    GameObject.FindObjectOfType<Tournament>().TimeToString = k.When.ToString();
+                    GameObject.FindObjectOfType<Tournament>().NotLimitTimer();
                     //Tournament.tournament.TimeParse(k.When.ToString());
                 }
-                if (Tournament.tournament.changeID == "5c73f1c92a42c805098a5349" && k.UserId == "5c73f1c92a42c805098a5349" && PortalNetwork.THIS.IsYou(k.UserId))
+                if (GameObject.FindObjectOfType<Tournament>().changeID == "5c73f1c92a42c805098a5349" && k.UserId == "5c73f1c92a42c805098a5349" && GameObject.FindObjectOfType<PortalNetwork>().IsYou(k.UserId))
                 {
                     //Tournament.tournament.division = k.Division;
-                    Tournament.tournament.league = k.league;
-                    Debug.Log(k.league + ":" + Tournament.tournament.division);
-                    Tournament.tournament.TimeToString = k.When.ToString();
-                    Tournament.tournament.NotLimitTimer();
+                    GameObject.FindObjectOfType<Tournament>().league = k.league;
+                    Debug.Log(k.league + ":" + GameObject.FindObjectOfType<Tournament>().division);
+                    GameObject.FindObjectOfType<Tournament>().TimeToString = k.When.ToString();
+                    GameObject.FindObjectOfType<Tournament>().NotLimitTimer();
                     //Tournament.tournament.TimeParse(k.When.ToString());
                 }
             }
@@ -152,7 +152,7 @@ public class GamesparksDataManager : IDataManager
                 foreach (var i in cursor)
                 {
                     //Tournament.tournament.Timer1 = i.Value.ToString();
-                    Tournament.tournament.TimeParseAll(i.Value.ToString(), i.Key.ToString());
+                    GameObject.FindObjectOfType<Tournament>().TimeParseAll(i.Value.ToString(), i.Key.ToString());
                     //Debug.Log(i.Value.ToString());
                 }
 
@@ -237,11 +237,11 @@ public class GamesparksDataManager : IDataManager
                     {
                         if (tt.Key == "Tour")
                         {
-                            Tournament.tournament.TypeTourString[0] = tt.Value.ToString();
+                            GameObject.FindObjectOfType<Tournament>().TypeTourString[0] = tt.Value.ToString();
                         }
                         if (tt.Key == "TypeTour")
                         {
-                            Tournament.tournament.TypeTourString[1] = tt.Value.ToString();
+                            GameObject.FindObjectOfType<Tournament>().TypeTourString[1] = tt.Value.ToString();
                         }
                     }
                 }
@@ -267,9 +267,9 @@ public class GamesparksDataManager : IDataManager
         foreach (var c in cursor)
         {
             //Debug.Log(c.Key.ToString());
-            if (PortalNetwork.THIS.IsYou(c.Key.ToString()))
+            if (GameObject.FindObjectOfType<PortalNetwork>().IsYou(c.Key.ToString()))
             {//
-                if (!OpenAppLevel.THIS.onf7) Tournament.joined = true;
+                if (!GameObject.FindObjectOfType<OpenAppLevel>().onf7) Tournament.joined = true;
                 string idtime = "5be8b796fc37de04ee99c3ca";
                 //Debug.Log(c.Key.ToString());
                 //Debug.Log(c.Key.ToString());
@@ -312,7 +312,7 @@ public class GamesparksDataManager : IDataManager
             {
                     foreach (var entry in response.Data_urlsLast)
                     {
-                        PortalNetwork.THIS.urlAdd(entry.userid+"$"+"https://platform-lookaside.fbsbx.com/platform/profilepic/?" + entry.url);
+                        GameObject.FindObjectOfType<PortalNetwork>().urlAdd(entry.userid+"$"+"https://platform-lookaside.fbsbx.com/platform/profilepic/?" + entry.url);
                     }
                     NextImageScript.THIS.LoadPlayerPicture();
             }
@@ -324,7 +324,7 @@ public class GamesparksDataManager : IDataManager
     public bool IsYou(string id)
     {
         bool meorNot = false;
-        if (id == PortalNetwork.THIS.UserID)
+        if (id == GameObject.FindObjectOfType<PortalNetwork>().UserID)
             return true;
         else if (meorNot) { return true; }
         return false;
@@ -361,7 +361,7 @@ public class GamesparksDataManager : IDataManager
     public void LoginWithFriends(Dictionary<string, string> dic, string UserIDFriend, int levelpl)
     {
         //addurlplayer
-        string url1 = MoveLayer.THIS.urlOnTournament.Replace("https://platform-lookaside.fbsbx.com/platform/profilepic/?", string.Empty);
+        string url1 = GameObject.FindObjectOfType<MoveLayer>().urlOnTournament.Replace("https://platform-lookaside.fbsbx.com/platform/profilepic/?", string.Empty);
         new LogEventRequest()
             .SetEventKey("addurlplayer")
             .SetEventAttribute("url", url1)
@@ -386,12 +386,12 @@ public class GamesparksDataManager : IDataManager
     }
     public void SaveControl()
     {
-        string url1 = OpenAppLevel.THIS.urlOnTournament.Replace(Tournament.urlpredicate, string.Empty);
+        string url1 = GameObject.FindObjectOfType<OpenAppLevel>().urlOnTournament.Replace(Tournament.urlpredicate, string.Empty);
         new LogEventRequest_InputScore()
             .Set_TRACK(url1)
-            .Set_score(OpenAppLevel.THIS.StripeGameCount)
-            .Set_league(Tournament.tournament.league)
-            .Set_division((long)Tournament.tournament.division)
+            .Set_score(GameObject.FindObjectOfType<OpenAppLevel>().StripeGameCount)
+            .Set_league(GameObject.FindObjectOfType<Tournament>().league)
+            .Set_division((long)GameObject.FindObjectOfType<Tournament>().division)
             .Set_date(DateTime.Now.ToString()).Send((resp12) =>
             {
 
@@ -401,8 +401,8 @@ public class GamesparksDataManager : IDataManager
             new LogEventRequest_InputScore()
                 .Set_TRACK(url1)
                 .Set_score(0)
-                .Set_league(Tournament.tournament.league)
-                .Set_division((long)Tournament.tournament.division)
+                .Set_league(GameObject.FindObjectOfType<Tournament>().league)
+                .Set_division((long)GameObject.FindObjectOfType<Tournament>().division)
                 .Set_date(DateTime.Now.ToString()).Send((resp12) =>
                 {
                     PlayerPrefs.SetInt("sum1", 1);

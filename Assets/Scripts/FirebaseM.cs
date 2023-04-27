@@ -8,30 +8,26 @@ using System.Linq;
 
 public class FirebaseM : MonoBehaviour
 {
-    //Firebase variables
-    [Header("Firebase")]
+    public GameObject GButtonLB;
     public DependencyStatus dependencyStatus;
     public FirebaseAuth auth;    
     public FirebaseUser User;
     public DatabaseReference DBreference;
 
-    //Login variables
-    [Header("Login")]
+
     public TMP_InputField emailLF;
     public TMP_InputField passwordLF;
     public TMP_Text warninLT;
     public TMP_Text confirmLT;
 
-    //Register variables
-    [Header("Register")]
+
     public TMP_InputField usernameRegisterField;
     public TMP_InputField emailRegisterField;
     public TMP_InputField passwordRegisterField;
     public TMP_InputField passwordRegisterVerifyField;
     public TMP_Text warningRegisterText;
 
-    //User Data variables
-    [Header("UserData")]
+
     public TMP_Text usernameField;
     public TMP_Text levelF;
     public TMP_Text ScoreF;
@@ -93,7 +89,7 @@ public class FirebaseM : MonoBehaviour
     public void SignOutButton()
     {
         auth.SignOut();
-        UIManager.instance.LoginScreen();
+        UIM.instance.LoginScreen();
         ClearRegisterF();
         ClearLoginFeilds();
     }
@@ -171,7 +167,7 @@ public class FirebaseM : MonoBehaviour
             yield return new WaitForSeconds(2);
 
             usernameField.text = User.DisplayName;
-            UIManager.instance.UserDataScreen(); // Change to user data UI
+            UIM.instance.UserDataScreen(); // Change to user data UI
             confirmLT.text = "";
             ClearLoginFeilds();
             ClearRegisterF();
@@ -251,7 +247,7 @@ public class FirebaseM : MonoBehaviour
                     {
                         //Username is now set
                         //Now return to login screen
-                        UIManager.instance.LoginScreen();                        
+                        UIM.instance.LoginScreen();                        
                         warningRegisterText.text = "";
                         ClearRegisterF();
                         ClearLoginFeilds();
@@ -414,7 +410,7 @@ public class FirebaseM : MonoBehaviour
             }
 
             //Go to scoareboard screen
-            UIManager.instance.ScoreboardScreen();
+            UIM.instance.ScoreboardScreen();
         }
     }
 }

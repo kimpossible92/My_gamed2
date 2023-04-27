@@ -5,7 +5,7 @@ using System;
 using Facebook.Unity;
 
 public class OpLvl : MonoBehaviour {
-    public static OpLvl THIS;
+    //public static OpLvl THIS;
     public MoveLayer GetMoveLayer;
     public static OpLvl _instance;
     [SerializeField]MapLevel2[] GetLevels;
@@ -37,7 +37,7 @@ public class OpLvl : MonoBehaviour {
                     //PortalNetwork.THIS.LeaderBoard(currentLevel.Number);
                     //NextImage.gameObject.SetActive(true);
                     //buttonImage.SetActive(true);
-                    OpenAppLevel.THIS.StripeGameCount = 0;
+                    FindObjectOfType<OpenAppLevel>().StripeGameCount = 0;
                     GetManager.OnappMatch();
                     GetTargetLoad(currentLevel.Number);
                 }
@@ -46,7 +46,7 @@ public class OpLvl : MonoBehaviour {
     }
     private void Awake()
     {
-        THIS = this;
+        //THIS = this;
     }
     public void GetTargetLoad(int current)
     {
